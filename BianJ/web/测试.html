@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>淡出提示框</title>
+
+    <script src="assets/lib/jquery.js"></script>
+
+    <style>
+        /* .fadeOut {
+
+            opacity: 0;
+
+            transition: opacity 3s ease;
+
+        } */
+        .Welcome {
+            position: relative;
+            width: 180px;
+            height: 46px;
+            background-color: aqua;
+            border-radius: 50px;
+            left: 50%;
+            top: 30px;
+            opacity: 1;
+            transition-duration: 1s;
+            transform: translateX(-50%);
+            /* display: none; */
+        }
+
+        .Welcome2 {
+            position: relative;
+            width: 200px;
+            height: 50px;
+            background-color: black;
+            border-radius: 50px;
+            left: 50%;
+            top: -50px;
+            opacity: 0;
+
+            transition-duration: 1s;
+            transform: translateX(-50%);
+        }
+
+        .Welcome p {
+            display: block;
+            text-align: center;
+            height: 46px;
+            line-height: 46px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="Welcome">
+        <p><a class="a1" href="">下午好</a><a href="">杨思维</a></p>
+    </div>
+
+    <script>
+
+        // // 欢迎弹窗
+        // $(document).ready(function () {
+        //     $(".Welcome").fadeIn();
+        //     setTimeout(function () {
+        //         $(".Welcome").addClass("Welcome2");
+        //     }, 5000); // 延迟5秒执行
+        // });
+
+
+    </script>
+
+
+
+</body>
+
+</html>

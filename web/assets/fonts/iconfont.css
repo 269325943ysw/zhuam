@@ -1,0 +1,101 @@
+@font-face {
+  font-family: "iconfont"; /* Project id  */
+  src: url('iconfont.ttf?t=1686707949582') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-aite:before {
+  content: "\e7ab";
+}
+
+.icon-fankui:before {
+  content: "\e738";
+}
+
+.icon-weibo:before {
+  content: "\e66b";
+}
+
+.icon-fenxiang:before {
+  content: "\e6a5";
+}
+
+.icon-pinglun:before {
+  content: "\e6ad";
+}
+
+.icon-shouye:before {
+  content: "\e615";
+}
+
+.icon-icon:before {
+  content: "\e651";
+}
+
+.icon-bangzhu:before {
+  content: "\e8a3";
+}
+
+.icon-shuaxin:before {
+  content: "\ec08";
+}
+
+.icon-shujuwajue:before {
+  content: "\ec5c";
+}
+
+.icon-qingkong:before {
+  content: "\e946";
+}
+
+.icon-dianzan:before {
+  content: "\ec7f";
+}
+
+.icon-biaoqing:before {
+  content: "\e609";
+}
+
+.icon-dashang:before {
+  content: "\e692";
+}
+
+.icon-QQ:before {
+  content: "\e667";
+}
+
+.icon-weixin:before {
+  content: "\e630";
+}
+
+.icon-remen:before {
+  content: "\e8c9";
+}
+
+.icon-fabu-:before {
+  content: "\e63a";
+}
+
+.icon-ic_description_file24px:before {
+  content: "\e617";
+}
+
+.icon-exit:before {
+  content: "\e97f";
+}
+
+.icon-twitter-circle-fill:before {
+  content: "\ea90";
+}
+
+.icon-facebook-fill:before {
+  content: "\eab3";
+}
+

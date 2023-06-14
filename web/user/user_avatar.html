@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="../assets/lib/layui/css/layui.css" />
+  <link rel="stylesheet" href="../assets/lib/cropper/cropper.css" />
+  <link rel="stylesheet" href="../assets/css/user/user_avatar.css" />
+</head>
+
+<body>
+  <!-- 卡片区域 -->
+  <div class="layui-card">
+    <div class="layui-card-header">头像设置</div>
+    <div class="layui-card-body">
+      <!-- 第一行的图片裁剪和预览区域 -->
+      <div class="row1">
+        <!-- 图片裁剪区域 -->
+        <div class="cropper-box">
+          <!-- 这个 img 标签很重要，将来会把它初始化为裁剪区域 -->
+          <img id="image" src="../assets/images/sample.jpg" />
+        </div>
+        <!-- 图片的预览区域 -->
+        <div class="preview-box">
+          <div>
+            <!-- 宽高为 100px 的预览区域 -->
+            <div class="img-preview w100"></div>
+            <p class="size">100 x 100</p>
+          </div>
+          <div>
+            <!-- 宽高为 50px 的预览区域 -->
+            <div class="img-preview w50"></div>
+            <p class="size">50 x 50</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 第二行的按钮区域 -->
+      <div class="row2">
+        <!-- 通过 accept 属性，可以指定，允许用户选择什么类型的文件 -->
+        <input type="file" id="file" accept="image/png,image/jpeg" />
+        <button type="button" class="layui-btn" id="btnChooseImage">上传</button>
+        <button type="button" class="layui-btn layui-btn-danger" id="btnUpload">确定</button>
+      </div>
+    </div>
+  </div>
+  <script src="../assets/lib/layui/layui.all.js"></script>
+  <script src="../assets/lib/jquery.js"></script>
+  <script src="../assets/lib/cropper/Cropper.js"></script>
+  <script src="../assets/lib/cropper/jquery-cropper.js"></script>
+  <script src="../assets/js/baseAPI.js"></script>
+  <script src="../assets/js/user/user_avatar.js"></script>
+  <script>
+
+    const deg = 6;
+    const hr = document.querySelector('#hr');
+    const mn = document.querySelector('#mn');
+    const sc = document.querySelector('#sc');
+    // 设置定时器，每秒执行一次
+    setInterval(() => {
+      let day = new Date();
+      // 求一小时，一分钟，一秒的角度，一共360度
+      let h = day.getHours() * 30;  // 一小时等于30度
+      let m = day.getMinutes() * deg;   // 一分钟等于6度
+      let s = day.getSeconds() * deg;   // 一秒等于6度
+      hr.style.transform = `rotateZ(${h + m / 12}deg)`;
+      mn.style.transform = `rotateZ(${m}deg)`;
+      sc.style.transform = `rotateZ(${s}deg)`;
+    }, 1000)
+
+  </script>
+
+</body>
+
+</html>

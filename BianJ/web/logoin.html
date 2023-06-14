@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欢迎来到抓马社区</title>
+</head>
+<link rel="shortcut icon" href="img/logo/抓马logo.png" type="image/x-icon">
+<!-- 导入 LayUI 的样式 -->
+<link rel="stylesheet" href="./assets/lib/layui/css/layui.css" />
+<!-- 自己的css -->
+<link rel="stylesheet" href="css/login.css">
+
+<body>
+    <!-- //切换背景 -->
+    <div class="slideshow">
+        <div class="slideshow-image" style="background-image: url('img/logo/bg.jpg')"></div>
+        <div class="slideshow-image" style="background-image: url('img/logo/bg2.jpg')"></div>
+        <div class="slideshow-image" style="background-image: url('img/logo/bg3.jpg')"></div>
+        <div class="slideshow-image" style="background-image: url('img/logo/bg4.jpg')"></div>
+    </div>
+    <!-- //登录 -->
+    <div class="box">
+
+        <div class="form2" id="form2">
+            <form class="layui-form" id="form_login">
+
+                <div class="title2">请登录你的账户</div>
+
+                <div class="subtitle2">更多元的文化社区</div>
+
+                <div class="input-container ic1">
+                    <input class="input" type="text" placeholder=" " name="username" required
+                        lay-verify="required|username" autocomplete="off" />
+                    <div class="cut"></div>
+                    <label for="用户名" class="placeholder">用户名</label>
+                </div>
+                <div class="input-container ic2">
+                    <input class="input" type="password" placeholder=" " name="password" required
+                        lay-verify="required|pwd" autocomplete="off" />
+                    <div class="cut"></div>
+                    <label for="密码" class="placeholder">密码</label>
+                </div>
+
+                <button type="text" class="submit" lay-submit><a
+                        style="text-decoration: none; color: #fff;;">登录</a></button>
+                <button id="link_reg" class="submit">
+                    <a>注册</a>
+                </button>
+            </form>
+        </div>
+
+
+        <!-- 注册 -->
+
+        <div class="form1" id="form1">
+            <form class="layui-form" id="form_reg">
+                <div class="title">欢迎光临抓马</div>
+
+                <div class="subtitle">让我们创建您的帐户！</div>
+
+                <div class="input-container ic1">
+                    <input class="input" type="text" placeholder=" " name="username" required lay-verify="required"
+                        autocomplete="off" />
+                    <div class="cut"></div>
+                    <label for="用户名" class="placeholder">用户名</label>
+                </div>
+                <div class="input-container ic2">
+                    <input class="input" type="password" placeholder=" " name="password" required
+                        lay-verify="required|pwd" autocomplete="off" />
+                    <div class="cut"></div>
+                    <label for="密码" class="placeholder">密码</label>
+                </div>
+
+                <div class="input-container ic2">
+                    <input class="input" type="password" placeholder=" " name="password" required
+                        lay-verify="required|pwd|repwd" autocomplete="off" />
+                    <div class="cut cut-short"></div>
+                    <label for="密码" class="placeholder">重复密码</label>
+                </div>
+
+                <button type="text" class="submit" lay-submit><a
+                        style="text-decoration: none; color: #fff;;">提交</a></button>
+                <a id="#link_login"></a>
+            </form>
+        </div>
+
+        <!-- 尾页 -->
+        <p style="color: white ;">Copyright © More 426</p>
+        <p id="text_p" style="color: white ; position: relative; top: 30px;"></p>
+    </div>
+
+    <!-- js文件 -->
+    <!-- 导入 Layui 的JS文件 -->
+    <script src="./assets/lib/layui/layui.all.js"></script>
+    <!-- 导入jq -->
+    <script src="./assets/lib/jquery.js"></script>
+    <!-- 导入自己封装的api -->
+    <script src="assets/js/baseAPI.js"></script>
+    <!-- 导入自己的js -->
+    <script src="js/logoin.js"> </script>
+    <script>
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url(../../images/bg1.jpg);
+  padding: 15px;
+}
+
+.layui-card {
+  width: 500px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}

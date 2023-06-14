@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- layui -->
+    <link rel="stylesheet" href="./assets/lib/layui/css/layui.css">
+    <!-- 图表 -->
+    <link rel="stylesheet" href="assets/fonts/iconfont.css">
+    <!-- 主页样式 -->
+    <link rel="stylesheet" href="css/index.css">
+    <!-- 搜索框样式 -->
+    <link rel="stylesheet" href="css/search_for.css">
+    <title>抓马社区</title>
+    <link rel="shortcut icon" href="img/logo/抓马logo.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- 打招呼 -->
+    <div class="Welcome">
+        <p id="welcome-p"></p>
+    </div>
+    <!-- 视频和背景 -->
+    <div class="head_index">
+        <div class="head_logo"><img src="img/logo/抓马logo.png " alt=""></div>
+        <div class="head_video">
+            <video autoplay loop muted>
+                <source src="img/logo/zhuama_login.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="head_input">
+            <div class="head_img"><img src="img/logo/搜索 (1).png" alt="" style=" z-index: 100;"></div>
+            <input type="text" placeholder="点击这里搜索热点抓马吧 ">
+            <div class=" overlay">
+            </div>
+            <button class="head_but">搜索</button>
+
+        </div>
+    </div>
+
+    <!-- 导航栏 -->
+    <div class="nav_box">
+        <div id="nav-1">
+            <div class="nav_x"></div>
+            <ul class="nav">
+                <li class="slide1"></li>
+                <li class="slide2"></li>
+                <li class="logo"><img src="img/logo/抓马logo.png" alt=""></li>
+                <li class="search">
+                    <div class="type-ahead">
+                        <input type="text" class="type-ahead__input" placeholder="输入关键词...">
+                        <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
+                            clip-rule="evenodd">
+                            <!-- <div></div> -->
+                            <path
+                                d="M15.853 16.56c-1.683 1.517-3.911 2.44-6.353 2.44-5.243 0-9.5-4.257-9.5-9.5s4.257-9.5 9.5-9.5 9.5 4.257 9.5 9.5c0 2.442-.923 4.67-2.44 6.353l7.44 7.44-.707.707-7.44-7.44zm-6.353-15.56c4.691 0 8.5 3.809 8.5 8.5s-3.809 8.5-8.5 8.5-8.5-3.809-8.5-8.5 3.809-8.5 8.5-8.5z">
+                        </svg>
+                        <ul class="type-ahead__suggestions hidden"></ul>
+                    </div>
+
+                </li>
+                <li class="active"><a class="active" href="#">网站首页</a></li>
+                <li><a href="#/">关于我们</a></li>
+                <li><a href="#/">公司简介</a></li>
+                <li><a href="#/">成功案例</a></li>
+            </ul>
+
+        </div>
+        <div class="layui-nnv1">
+            <div class="layu_nnv1_1">
+                <!-- 头部区域（可配合layui已有的水平导航） -->
+                <ul class="layui-nav  layui-layout-right ">
+                    <li class="layui-nav-item">
+                        <a href="javascript:;" class="userinfo" style="color: black;">
+                            <img src="" class="layui-nav-img " />
+                            <span class="text-avatar">A</span>
+                            个人中心
+                        </a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="./user/user_info.html" target="fm">基本资料</a></dd>
+                            <dd><a href="./user/user_avatar.html" target="fm">更换头像</a></dd>
+                            <dd><a href="./user/user_pwd.html" target="fm">重置密码</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item2">
+                        <a href="javascript:;" id="btnLogout"><span class="iconfont icon-exit"></span>退出</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 首页 -->
+    <div class="index_body">
+        <!-- 左侧的分类 -->
+        <div class="index_left">
+            <div class="cs11">
+                <table class="layui-table classification touchHand">
+                </table>
+            </div>
+        </div>
+        <!-- 中间 -->
+        <div class="index_middle">
+            <div class="publish_box_1"></div>
+            <script type="text/html" id="tpl-table">
+                {{each data}}
+               <div class="publish_box_1">
+                <div class="publish_box">
+                    <div>
+                      <table style=" width: 100%;">
+                        <tr>
+                          <td rowspan="2" style="width:60px;height: 52px;"><img style="border-radius: 50%;"
+                              src="{{$value.user_pic}}" width="52px" alt="">
+                          </td>
+                          <td style="font-weight: bold; font-family: 宋体 ;font-size: 15px;height: 30px;">
+                            {{$value.nickname}}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="color: darkgray; font-family: 宋体 ; font-size: 0.5em; height: 10px;">{{$value.pub_date}}</td>
+                        </tr>
+                        <!-- 文章标题 -->
+                        <tr>
+                          <td></td>
+                          <td style="font-size: 0.5em; height: 10px;font-weight: 0.1; height: 30px;"><b>{{$value.title}}</b>
+                          </td>
+                        </tr>
+                        <!-- 文章内容 -->
+                        <tr>
+                          <td>
+                          </td>
+                          <td style="font-size: 0.5em; height: 10px;">
+                            {{$value.content}}
+                          </td>
+                        </tr>
+                        <!-- 图片 -->
+                        <tr>
+                          <td></td>
+                          <td  style="height: 175px;">
+                        <a class="articleImage_boz touchHand">
+                            <div class="mask "></div>
+                            <img  src="{{$value.cover_img}}" width=" 225px " height='169' alt="" style="border-radius: 10%;">
+                            </a>
+                        </td>
+                        </tr>
+                        <!-- 评论点赞 -->
+                        <tr>
+                          <td  colspan="2" class="interaction">
+                            <div class=" interaction-div">
+                                <div><a id="likelike" class="iconfont icon-dianzan textlile touchHand " data-id="{{$value.Id}}" >{{$value.like_text}}</a></div>
+                                <div><a class="iconfont icon-pinglun touchHand commentButton" data-id="a{{$value.Id}}">评论</a></div>
+                                <div><a  class="iconfont icon-fenxiang touchHand" data-id="b{{$value.Id}}">分享</a></div></div></td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="share" id="b{{$value.Id}}">
+                    <div><a class="d{{$value.Id}}"> <img src="img/logo/QQ.png" width="30px" alt="确定分享到QQ? "> QQ</a><a class="d{{$value.Id}}" ><img src="img/logo/微信.png" width="30px" alt="">微信</a><a class="d{{$value.Id}}" ><img src="img/logo/微博.png" width="30px" alt="">微博</a><a class="d{{$value.Id}}" ><img src="img/logo/脸书.png" width="30px" alt="">脸书</a></div>
+                  </div>
+                  <div class="commentBox" id="a{{$value.Id}}">
+   
+                        <div class="commentBox_pic">
+                            <img src="{{$value.user_pl}}" class="pl_pic" />
+                            <span class="text_pic">无</span>
+                        </div>
+                        <div class="commentBox_input">
+                        <form action="">
+                            <input type="text" placeholder="恶语伤人，善语结缘" >
+                            <button  >发布</button>
+                        </form>
+                    </div>
+                    <div class="commentBox_emoj">
+                        <a class="touchHand iconfont icon-biaoqing chat-button-emoj" data-id="e{{$value.Id}}"></a><a class="iconfont icon-aite touchHand"></a><a class="iconfont icon-qingkong touchHand"></a>
+                    </div>
+                    <div class="emoji-selector" id="e{{$value.Id}}">
+                        <span class='emoji-item '>😀</span>
+                        <span class='emoji-item '>😁</span>
+                        <span class='emoji-item '>😂</span>
+                        <span class='emoji-item '>😃</span>
+                        <span class='emoji-item '>😄</span>
+                        <span class='emoji-item '>😅</span>
+                        <span class='emoji-item '>😆</span>
+                        <span class='emoji-item '>😉</span>
+                        <span class='emoji-item '>😊</span>
+                        <span class='emoji-item '>😋</span>
+                        <span class='emoji-item '>😎</span>
+                        <span class='emoji-item '>😍</span>
+                        <span class='emoji-item '>😘</span>
+                        <span class='emoji-item '>😗</span>
+                        <span class='emoji-item '>😙</span>
+                        <span class='emoji-item '>😚</span>
+                        <span class='emoji-item '>😇</span>
+                        <span class='emoji-item '>😐</span>
+                        <span class='emoji-item '>😑</span>
+                        <span class='emoji-item '>😶</span>
+                        <span class='emoji-item '>😏</span>
+                        <span class='emoji-item '>😣</span>
+                        <span class='emoji-item '>😥</span>
+                        <span class='emoji-item '>😮</span>
+                        <span class='emoji-item '>😯</span>
+                        <span class='emoji-item '>😪</span>
+                        <span class='emoji-item '>😫</span>
+                        <span class='emoji-item '>😴</span>
+                        <span class='emoji-item '>😌</span>
+                        <span class='emoji-item '>😛</span>
+                        <span class='emoji-item '>😜</span>
+                        <span class='emoji-item '>😝</span>
+                        <span class='emoji-item '>😒</span>
+                        <span class='emoji-item '>😓</span>
+                        <span class='emoji-item '>😔</span>
+                        <span class='emoji-item '>😕</span>
+                        <span class='emoji-item '>😲</span>
+                        <span class='emoji-item '>😷</span>
+                        <span class='emoji-item '>😖</span>
+                        <span class='emoji-item '>😞</span>
+                        <span class='emoji-item '>😟</span>
+                        <span class='emoji-item '>😤</span>
+                        <span class='emoji-item '>😢</span>
+                        <span class='emoji-item '>😭</span>
+                        <span class='emoji-item '>😦</span>
+                        <span class='emoji-item '>😧</span>
+                        <span class='emoji-item '>😨</span>
+                        <span class='emoji-item '>😬</span>
+                        <span class='emoji-item '>😰</span>
+                        <span class='emoji-item '>😱</span>
+                        <span class='emoji-item '>😳</span>
+                        <span class='emoji-item '>😵</span>
+                        <span class='emoji-item '>😡</span>
+                        <span class='emoji-item '>😠</span>
+                        <span class='emoji-item '>😈</span>
+                        <span class='emoji-item '>👿</span>
+                        <span class='emoji-item '>👹</span>
+                        <span class='emoji-item '>👺</span>
+                        <span class='emoji-item '>💀</span>
+                        <span class='emoji-item '>☠</span>
+                        <span class='emoji-item '>👻</span>
+                        <span class='emoji-item '>👽</span>
+                        <span class='emoji-item '>👾</span>
+                        <span class='emoji-item '>💣</span>
+                        <span class='emoji-item '>💋</span>
+                        <span class='emoji-item '>💌</span>
+                        <span class='emoji-item '>💘</span>
+                        <span class='emoji-item '>❤</span>
+                        <span class='emoji-item '>💓</span>
+                        <span class='emoji-item '>💔</span>
+                        <span class='emoji-item '>💕</span>
+                        <span class='emoji-item '>💖</span>
+                        <span class='emoji-item '>💗</span>
+                        <span class='emoji-item '>💙</span>
+                        <span class='emoji-item '>💚</span>
+                        <span class='emoji-item '>💛</span>
+                        <span class='emoji-item '>💜</span>
+                        <span class='emoji-item '>💝</span>
+                        <span class='emoji-item '>💞</span>
+                        <span class='emoji-item '>💟</span>
+                        <span class='emoji-item '>💏</span>
+                        <span class='emoji-item '>🧑‍🤝‍🧑</span>
+                        <span class='emoji-item '>💪</span>
+                        <span class='emoji-item '>👈</span>
+                        <span class='emoji-item '>👉</span>
+                        <span class='emoji-item '>☝</span>
+                        <span class='emoji-item '>👆</span>
+                        <span class='emoji-item '>👇</span>
+                        <span class='emoji-item '>✌</span>
+                        <span class='emoji-item '>✋</span>
+                        <span class='emoji-item '>👌</span>
+                        <span class='emoji-item '>👍</span>
+                        <span class='emoji-item '>👎</span>
+                        <span class='emoji-item '>✊</span>
+                        <span class='emoji-item '>👊</span>
+                        <span class='emoji-item '>👋</span>
+                        <span class='emoji-item '>👏</span>
+                        <span class='emoji-item '>👐</span>
+                        <span class='emoji-item '>✍</span>
+                    </div>
+                  </div>
+                  <div style="background-color: #f1f2f5; width: 100%;height: 10px;"></div>
+            </div>
+                {{/each}}
+              </script>
+        </div>
+
+        <!-- 右一 -->
+        <div class="index_right1">
+            <ul class="layui-nav layui-nav-tree layui-bg-cyan layui-inline" lay-shrink="all" style="width: 100%;"
+                lay-filter="demo">
+                <li class="layui-nav-item">
+                    <a href="javascript:;" class="iconfont icon-shujuwajue" id="textshuj">文章数据</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;" class="iconfont icon-dianzan">点赞</a></dd>
+                        <dd><a href="javascript:;" class="iconfont icon-fenxiang ">收藏</a></dd>
+                        <dd><a href="javascript:;" class="iconfont icon-pinglun">评论</a></dd>
+                    </dl>
+
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;" class="iconfont icon-bangzhu" id="textshui">使用帮助</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="" class="iconfont">联系客服</a></dd>
+                        <dd><a href="" class="iconfont .icon-fankui">问题反馈</a></dd>
+                        <dd><a href="" class="iconfont .icon-dashang">打赏作者</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a class="iconfont icon-shouye touchHand" id="mi_text">我的文章</a></li>
+                <li class="layui-nav-item  touchHand" lay-on="test-skin-win10-page"><a
+                        class="iconfont icon-fabu- ">发布文章</a></li>
+            </ul>
+
+        </div>
+        <div class="index_right2">
+            <div class="HotList"><a class="HotList_name">抓马热榜</a>
+                <a class="HotList_f5 iconfont icon-shuaxin touchHand">点击刷新</a>
+            </div>
+            <div class="HotList_text">
+                <div class="HotList_text_p touchHand">
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- 导入 Layui 的JS文件 -->
+    <script src="./assets/js/layui.js"></script>
+    <!-- 导入jq -->
+    <script src="./assets/lib/jquery.js"></script>
+    <!-- 导入模板引擎 -->
+    <script src="./assets/lib/template-web.js"></script>
+    <!-- 导入自己封装的api -->
+    <script src="assets/js/baseAPI.js"></script>
+    <!-- 导入自己的接口js -->
+    <script src="js/index.js"></script>
+
+
+</body>
+
+</html>
